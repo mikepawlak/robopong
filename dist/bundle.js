@@ -8919,12 +8919,6 @@
 	    pongHelper.createText(p);
 	  };
 	
-	  function touchMoved() {
-	    ellipse(mouseX, mouseY, 5, 5);
-	    // prevent default
-	    return false;
-	  }
-	
 	  p.draw = function () {
 	
 	    pongHelper.monitorGame(p);
@@ -8971,7 +8965,8 @@
 	var ball_color = '#34a853'; //green
 	var board_color = '#eef1f3'; //whitesmoke
 	
-	var decision = void 0;
+	var decision = void 0,
+	    decision1 = void 0;
 	
 	function createGameObject() {
 	  return {
@@ -8995,6 +8990,16 @@
 	    key: 'handlePaddles',
 	    value: function handlePaddles(p) {
 	      //player 1 ctl
+	      //temp decision
+	      decision1 = _ai2.default.movementDecision(this.ball, this.paddle2);
+	      if (decision1 === 'up') {
+	        //move up
+	        this.paddle1.velocity -= 5;
+	      } else if (decision1 === 'down') {
+	        //move down
+	        this.paddle1.velocity += 5;
+	      }
+	
 	      if (p.keyIsDown(87)) {
 	        //move up
 	        this.paddle1.velocity -= 5;

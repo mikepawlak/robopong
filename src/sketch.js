@@ -27,12 +27,6 @@ const sketch = (p) => {
     pongHelper.createText(p);
   }
 
-  function touchMoved() {
-  ellipse(mouseX, mouseY, 5, 5);
-  // prevent default
-  return false;
-}
-
   p.draw = function () {
 
     pongHelper.monitorGame(p);
