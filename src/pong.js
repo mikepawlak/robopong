@@ -11,7 +11,7 @@ const paddle2_color = '#4285f4'; //blue
 const ball_color = '#34a853'; //green
 const board_color = '#eef1f3'; //whitesmoke
 
-let decision, decision1;
+let decision;
 
 function createGameObject() {
   return {
@@ -30,22 +30,22 @@ class Helper {
     this.watcher = p.height / 2 - 50; //watches P1 for movement
     this.score = {
       p1 : 0,
-      p2 : 4
+      p2 : 0
     }
   }
 
   handlePaddles(p) {
     //player 1 ctl
     //temp decision
-    decision1 = ai.movementDecision(this.ball, this.paddle2);
-    if (decision1 === 'up') {
-      //move up
-      this.paddle1.velocity -= 5;
-    }
-    else if (decision1 === 'down') {
-      //move down
-      this.paddle1.velocity += 5;
-    }
+    //decision1 = ai.movementDecision(this.ball, this.paddle2);
+    // if (decision1 === 'up') {
+    //   //move up
+    //   this.paddle1.velocity -= 5;
+    // }
+    // else if (decision1 === 'down') {
+    //   //move down
+    //   this.paddle1.velocity += 5;
+    // }
 
     if (p.keyIsDown(87)) {
       //move up
@@ -55,6 +55,7 @@ class Helper {
       //move down
       this.paddle1.velocity += 5;
     }
+
 
 
     //player 2 ctl
